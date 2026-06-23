@@ -8,7 +8,7 @@ const CAROUSEL_HEIGHT = {
   md: 460,
 };
 
-const WORK_IMAGE_VERSION = "4";
+const WORK_IMAGE_VERSION = "5";
 
 const workItems = [
   {
