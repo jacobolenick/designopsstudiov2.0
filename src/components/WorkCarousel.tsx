@@ -8,7 +8,7 @@ const CAROUSEL_HEIGHT = {
   md: 460,
 };
 
-const WORK_IMAGE_VERSION = "6";
+const WORK_IMAGE_VERSION = "7";
 
 const workItems = [
   {
@@ -80,6 +80,13 @@ const workItems = [
     label: "AXS Inventory",
     width: 3620,
     height: 2568,
+  },
+  {
+    src: `/work/adobe-digital-products.png?v=${WORK_IMAGE_VERSION}`,
+    alt: "Adobe — digital products checkout",
+    label: "Adobe",
+    width: 7692,
+    height: 5240,
   },
 ];
 
