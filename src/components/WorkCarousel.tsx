@@ -8,7 +8,7 @@ const CAROUSEL_HEIGHT = {
   md: 460,
 };
 
-const WORK_IMAGE_VERSION = "3";
+const WORK_IMAGE_VERSION = "4";
 
 const workItems = [
   {
@@ -20,17 +20,17 @@ const workItems = [
   },
   {
     src: `/work/orgspace-invite.png?v=${WORK_IMAGE_VERSION}`,
-    alt: "Orgspace — invite team flow",
+    alt: "Orgspace — invite team error state",
     label: "Orgspace",
-    width: 5256,
-    height: 3423,
+    width: 5184,
+    height: 3351,
   },
   {
     src: `/work/orgspace-upload.png?v=${WORK_IMAGE_VERSION}`,
-    alt: "Orgspace — upload CSV error state",
+    alt: "Orgspace — upload CSV success",
     label: "Orgspace",
-    width: 5256,
-    height: 3423,
+    width: 5184,
+    height: 3351,
   },
   {
     src: `/work/orgspace-review.png?v=${WORK_IMAGE_VERSION}`,
