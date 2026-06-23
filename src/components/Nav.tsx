@@ -22,6 +22,9 @@ export function Nav() {
           <a href="#pricing" className="hover:text-ink transition-colors">
             Pricing
           </a>
+          <a href="#about" className="hover:text-ink transition-colors">
+            About
+          </a>
         </nav>
 
         <a
