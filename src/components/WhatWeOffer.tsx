@@ -1,6 +1,21 @@
 import { motion } from "framer-motion";
 import { Layers, Code2, PenTool } from "lucide-react";
 
+const serviceColors = [
+  {
+    icon: "text-blue-700",
+    box: "bg-blue-50 border-blue-200",
+  },
+  {
+    icon: "text-orange-700",
+    box: "bg-orange-50 border-orange-200",
+  },
+  {
+    icon: "text-green-700",
+    box: "bg-green-50 border-green-200",
+  },
+] as const;
+
 const services = [
   {
     icon: Layers,
@@ -37,7 +52,10 @@ export function WhatWeOffer() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
-          {services.map((service, i) => (
+          {services.map((service, i) => {
+            const colors = serviceColors[i];
+
+            return (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
@@ -46,15 +64,21 @@ export function WhatWeOffer() {
               transition={{ delay: i * 0.08 }}
               className="p-8 rounded-2xl bg-white border border-border"
             >
-              <div className="w-10 h-10 rounded-lg border border-border flex items-center justify-center mb-6">
-                <service.icon strokeWidth={1.5} className="w-[18px] h-[18px]" />
+              <div
+                className={`w-10 h-10 rounded-lg border flex items-center justify-center mb-6 ${colors.box}`}
+              >
+                <service.icon
+                  strokeWidth={1.5}
+                  className={`w-[18px] h-[18px] ${colors.icon}`}
+                />
               </div>
               <h3 className="text-[17px] font-medium mb-2">{service.title}</h3>
               <p className="text-[14px] text-muted leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

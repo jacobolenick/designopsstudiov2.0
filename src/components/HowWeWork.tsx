@@ -8,6 +8,34 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+const stepColors = [
+  {
+    icon: "text-blue-700",
+    box: "bg-blue-50 border-blue-200 group-hover:border-blue-300",
+    number: "text-blue-700",
+  },
+  {
+    icon: "text-orange-700",
+    box: "bg-orange-50 border-orange-200 group-hover:border-orange-300",
+    number: "text-orange-700",
+  },
+  {
+    icon: "text-green-700",
+    box: "bg-green-50 border-green-200 group-hover:border-green-300",
+    number: "text-green-700",
+  },
+  {
+    icon: "text-blue-700",
+    box: "bg-blue-50 border-blue-200 group-hover:border-blue-300",
+    number: "text-blue-700",
+  },
+  {
+    icon: "text-orange-700",
+    box: "bg-orange-50 border-orange-200 group-hover:border-orange-300",
+    number: "text-orange-700",
+  },
+] as const;
+
 const steps: { icon: LucideIcon; title: string }[] = [
   { icon: Figma, title: "Figma access & requirements handoff" },
   { icon: Zap, title: "Design sprint" },
@@ -30,23 +58,40 @@ export function HowWeWork() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
-          {steps.map((step, i) => (
+          {steps.map((step, i) => {
+            const colors = stepColors[i];
+
+            return (
             <motion.div
               key={step.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="group flex flex-col items-center text-center p-6 md:p-8 rounded-2xl bg-white border border-border hover:border-ink/15 hover:shadow-sm transition-all"
+              className="relative group flex flex-col items-center text-center p-6 md:p-8 rounded-2xl bg-white border border-border hover:border-ink/15 hover:shadow-sm transition-all"
             >
-              <div className="w-11 h-11 rounded-xl border border-border flex items-center justify-center mb-5 group-hover:border-ink/20 transition-colors">
-                <step.icon strokeWidth={1.5} className="w-5 h-5 text-ink" />
+              {i < steps.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  className="hidden lg:block absolute top-[3.25rem] left-[calc(50%+2.75rem)] w-[calc(100%-3.5rem)] h-px bg-border"
+                />
+              )}
+              <span
+                className={`mb-3 text-[12px] font-medium tabular-nums ${colors.number}`}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div
+                className={`w-11 h-11 rounded-xl border flex items-center justify-center mb-5 transition-colors ${colors.box}`}
+              >
+                <step.icon strokeWidth={1.5} className={`w-5 h-5 ${colors.icon}`} />
               </div>
               <p className="text-[14px] md:text-[15px] font-medium leading-snug">
                 {step.title}
               </p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         <motion.p

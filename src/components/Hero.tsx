@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { CONTRA_URL } from "../config";
 import { FramedImage } from "./FramedImage";
 
@@ -6,10 +7,22 @@ const HERO_WIDTH = 6904;
 const HERO_HEIGHT = 4988;
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const imageScale = useTransform(scrollYProgress, [0, 0.55, 1], [1, 1.07, 1.14]);
+  const imageY = useTransform(scrollYProgress, [0, 0.55, 1], [0, -72, -160]);
+
   return (
-    <section className="pt-28 md:pt-36 pb-16 md:pb-24 px-6 md:px-10 bg-white">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+    <section
+      ref={sectionRef}
+      className="relative overflow-visible pt-28 md:pt-36 pb-20 md:pb-32 px-6 md:px-10 bg-white"
+    >
+      <div className="max-w-[1200px] mx-auto overflow-visible">
+        <div className="relative z-0 max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,22 +71,27 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <div
-          className="framed-image-aspect w-full"
-          style={{ paddingBottom: `${(HERO_HEIGHT / HERO_WIDTH) * 100}%` }}
+        <motion.div
+          style={{ scale: imageScale, y: imageY }}
+          className="relative z-20 origin-top will-change-transform"
         >
-          <div className="framed-image-aspect__fill">
-            <FramedImage
-              src="/hero.png"
-              alt="Orgspace product design — account creation flow"
-              width={HERO_WIDTH}
-              height={HERO_HEIGHT}
-              priority
-              fill
-              className="h-full w-full shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)]"
-            />
+          <div
+            className="framed-image-aspect w-full"
+            style={{ paddingBottom: `${(HERO_HEIGHT / HERO_WIDTH) * 100}%` }}
+          >
+            <div className="framed-image-aspect__fill">
+              <FramedImage
+                src="/hero.png"
+                alt="Orgspace product design — account creation flow"
+                width={HERO_WIDTH}
+                height={HERO_HEIGHT}
+                priority
+                fill
+                className="h-full w-full shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)]"
+              />
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

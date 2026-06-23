@@ -4,6 +4,7 @@ import { CONTRA_URL } from "../config";
 type PricingTier = {
   name: string;
   badge: string;
+  badgeClass: string;
   description: string;
 };
 
@@ -11,24 +12,28 @@ const tiers: PricingTier[] = [
   {
     name: "Design System (Only)",
     badge: "3+ months",
+    badgeClass: "bg-blue-50 text-blue-700 border-blue-200",
     description:
       "Full Figma build with variables, themes, and documentation.",
   },
   {
     name: "Design System (Ongoing)",
     badge: "Retainer",
+    badgeClass: "bg-orange-50 text-orange-700 border-orange-200",
     description:
       "We continue to make updates to your design system as your needs change.",
   },
   {
     name: "Design System + Claude Code",
     badge: "5+ months",
+    badgeClass: "bg-green-50 text-green-700 border-green-200",
     description:
       "Full Figma build with variables, themes, and documentation.",
   },
   {
     name: "Product Design",
     badge: "3+ months",
+    badgeClass: "bg-blue-50 text-blue-700 border-blue-200",
     description:
       "We'll be your embedded product designer for all your design needs.",
   },
@@ -60,7 +65,9 @@ export function Pricing() {
             >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <h3 className="text-[17px] font-medium">{tier.name}</h3>
-                <span className="flex-shrink-0 text-[11px] font-medium tracking-wide uppercase bg-white text-muted px-2.5 py-1 rounded-full border border-border">
+                <span
+                  className={`flex-shrink-0 text-[11px] font-medium tracking-wide uppercase px-2.5 py-1 rounded-full border ${tier.badgeClass}`}
+                >
                   {tier.badge}
                 </span>
               </div>
@@ -73,7 +80,7 @@ export function Pricing() {
                 href={CONTRA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-2.5 rounded-full text-[13px] font-medium border border-border hover:bg-black/[0.03] transition-colors"
+                className="inline-flex items-center justify-center w-full py-2.5 rounded-full text-[13px] font-medium bg-ink text-white hover:bg-ink/85 transition-colors"
               >
                 Contact for pricing
               </a>
