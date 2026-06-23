@@ -5,6 +5,7 @@ import { HowWeWork } from "./components/HowWeWork";
 import { WorkCarousel } from "./components/WorkCarousel";
 import { WhatWeOffer } from "./components/WhatWeOffer";
 import { Pricing } from "./components/Pricing";
+import { AboutFounder } from "./components/AboutFounder";
 import { Footer } from "./components/Footer";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <WorkCarousel />
         <WhatWeOffer />
         <Pricing />
+        <AboutFounder />
       </main>
       <Footer />
     </>
