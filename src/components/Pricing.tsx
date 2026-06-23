@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CONTRA_URL } from "../config";
+import { CONTRA_URL, CTA_LABEL } from "../config";
 
 type PricingTier = {
   name: string;
@@ -72,21 +72,28 @@ export function Pricing() {
                 </span>
               </div>
 
-              <p className="text-[14px] text-muted leading-relaxed mb-8 flex-1">
+              <p className="text-[14px] text-muted leading-relaxed flex-1">
                 {tier.description}
               </p>
-
-              <a
-                href={CONTRA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-2.5 rounded-full text-[13px] font-medium bg-ink text-white hover:bg-ink/85 transition-colors"
-              >
-                Contact for pricing
-              </a>
             </motion.article>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-10 flex justify-center"
+        >
+          <a
+            href={CONTRA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-ink text-white text-[14px] font-medium px-6 py-2.5 rounded-full hover:bg-ink/85 transition-colors"
+          >
+            {CTA_LABEL}
+          </a>
+        </motion.div>
       </div>
     </section>
   );

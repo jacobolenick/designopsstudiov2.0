@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { CONTRA_URL } from "../config";
+import { CONTRA_URL, CTA_LABEL } from "../config";
 import { FramedImage } from "./FramedImage";
 
 const HERO_WIDTH = 6904;
@@ -66,10 +66,19 @@ export function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-ink text-white text-[14px] font-medium px-5 py-2.5 rounded-full hover:bg-ink/85 transition-colors"
             >
-              Contact for pricing
+              {CTA_LABEL}
             </a>
           </motion.div>
         </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="relative z-10 text-center text-[13px] text-muted mb-4 md:mb-5"
+        >
+          Client work for Orgspace. Helped them raise $10 million.
+        </motion.p>
 
         <motion.div
           style={{ scale: imageScale, y: imageY }}

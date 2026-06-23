@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { CONTRA_URL } from "../config";
+import { CONTRA_URL, CTA_LABEL } from "../config";
 import { Logo } from "./Logo";
 import { CloudText } from "./CloudText";
 
@@ -77,7 +77,7 @@ function FooterCTA() {
 
         <div className="flex justify-center relative z-20">
           <MagneticButton href={CONTRA_URL}>
-            Contact for pricing
+            {CTA_LABEL}
             <span className="w-5 h-5 rounded-full bg-ink text-white text-[11px] flex items-center justify-center font-medium">
               →
             </span>
@@ -95,7 +95,7 @@ function FooterCTA() {
                 key={i}
                 className="text-[clamp(2rem,5vw,3.5rem)] font-medium tracking-[-0.03em] text-white/[0.06] mx-10"
               >
-                Contact for pricing
+                {CTA_LABEL}
               </span>
             ))}
           </div>

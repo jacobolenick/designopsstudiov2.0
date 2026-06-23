@@ -1,4 +1,4 @@
-import { CONTRA_URL } from "../config";
+import { CONTRA_URL, CTA_LABEL } from "../config";
 import { Logo } from "./Logo";
 
 export function Nav() {
@@ -30,7 +30,7 @@ export function Nav() {
           rel="noopener noreferrer"
           className="text-[13px] font-medium bg-ink text-white px-4 py-2 rounded-full hover:bg-ink/85 transition-colors"
         >
-          Contact
+          {CTA_LABEL}
         </a>
       </div>
     </header>
