@@ -8,7 +8,7 @@ const CAROUSEL_HEIGHT = {
   md: 460,
 };
 
-const WORK_IMAGE_VERSION = "5";
+const WORK_IMAGE_VERSION = "6";
 
 const workItems = [
   {
@@ -17,6 +17,13 @@ const workItems = [
     label: "Espresso UI",
     width: 4568,
     height: 3372,
+  },
+  {
+    src: `/work/visual-app.png?v=${WORK_IMAGE_VERSION}`,
+    alt: "Visual App — design system components",
+    label: "Visual App",
+    width: 1024,
+    height: 769,
   },
   {
     src: `/work/orgspace-invite.png?v=${WORK_IMAGE_VERSION}`,
