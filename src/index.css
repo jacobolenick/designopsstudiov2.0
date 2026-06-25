@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-ink/10 text-ink;
+  }
+
+  img {
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cloud-text-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .cloud-text-dots,
+  .cloud-text-fill {
+    display: block;
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .cloud-text-dots {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.28) 1.2px,
+      transparent 1.2px
+    );
+    background-size: 5px 5px;
+  }
+
+  .cloud-text-fill {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background-image: url("/cloud-texture.jpg?v=3");
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    filter: saturate(1.2) brightness(1.1);
+    transition: opacity 0.3s ease;
+    clip-path: circle(
+      var(--cloud-spotlight, clamp(80px, 16vw, 160px)) at var(--cloud-x, 50%)
+        var(--cloud-y, 50%)
+    );
+  }
+
+  .cloud-text-fill-active {
+    opacity: 1;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .framed-image-outer {
+    border-radius: 24px;
+    border: 1px solid #e5e5e5;
+    padding: 5px;
+    background: white;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .framed-image-outer {
+      border-radius: 32px;
+      padding: 6px;
+    }
+  }
+
+  .framed-image-outer--fill {
+    display: block;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .framed-image-inner {
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    line-height: 0;
+    isolation: isolate;
+  }
+
+  @media (min-width: 768px) {
+    .framed-image-inner {
+      border-radius: 26px;
+    }
+  }
+
+  .framed-image-inner--hug {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .framed-image-inner--fill {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .framed-image-img {
+    display: block;
+  }
+
+  .framed-image-inner--hug .framed-image-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 18px;
+  }
+
+  @media (min-width: 768px) {
+    .framed-image-inner--hug .framed-image-img {
+      border-radius: 26px;
+    }
+  }
+
+  .framed-image-inner--fill .framed-image-img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+    clip-path: inset(0 round 18px);
+  }
+
+  @media (min-width: 768px) {
+    .framed-image-inner--fill .framed-image-img {
+      border-radius: 26px;
+      clip-path: inset(0 round 26px);
+    }
+  }
+
+  .framed-image-inner--fill .framed-image-img--contain {
+    object-fit: contain;
+  }
+
+  .framed-image-aspect {
+    position: relative;
+    width: 100%;
+  }
+
+  .framed-image-aspect__fill {
+    position: absolute;
+    inset: 0;
+  }
+}
