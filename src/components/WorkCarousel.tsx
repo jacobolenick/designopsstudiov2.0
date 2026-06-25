@@ -8,7 +8,7 @@ const CAROUSEL_HEIGHT = {
   md: 460,
 };
 
-const WORK_IMAGE_VERSION = "7";
+const WORK_IMAGE_VERSION = "8";
 
 const workItems = [
   {
@@ -52,6 +52,20 @@ const workItems = [
     label: "Orgspace",
     width: 6860,
     height: 4988,
+  },
+  {
+    src: `/work/orgspace-staffing-drawer.png?v=${WORK_IMAGE_VERSION}`,
+    alt: "Orgspace — staffing timeline with integrations drawer",
+    label: "Orgspace",
+    width: 1024,
+    height: 687,
+  },
+  {
+    src: `/work/orgspace-team-chart.png?v=${WORK_IMAGE_VERSION}`,
+    alt: "Orgspace — team chart with org structure",
+    label: "Orgspace",
+    width: 1024,
+    height: 697,
   },
   {
     src: `/work/crtside-onboarding.png?v=${WORK_IMAGE_VERSION}`,
