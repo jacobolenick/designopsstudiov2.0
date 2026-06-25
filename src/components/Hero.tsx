@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-visible pt-28 md:pt-36 pb-20 md:pb-32 px-6 md:px-10 bg-white"
+      className="relative overflow-visible pt-28 md:pt-36 pb-20 md:pb-32 px-6 md:px-10"
     >
       <div className="max-w-[1200px] mx-auto overflow-visible">
         <div className="relative z-0 max-w-3xl mx-auto text-center mb-12 md:mb-16">

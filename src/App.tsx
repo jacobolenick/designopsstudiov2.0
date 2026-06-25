@@ -7,19 +7,30 @@ import { WhatWeOffer } from "./components/WhatWeOffer";
 import { Pricing } from "./components/Pricing";
 import { AboutFounder } from "./components/AboutFounder";
 import { Footer } from "./components/Footer";
+import { SectionDivider } from "./components/SectionDivider";
+import { BackgroundLines } from "./components/BackgroundLines";
 
 export default function App() {
   return (
     <>
       <Nav />
-      <main>
-        <Hero />
-        <ClientLogos />
-        <HowWeWork />
-        <WorkCarousel />
-        <WhatWeOffer />
-        <Pricing />
-        <AboutFounder />
+      <main className="relative isolate bg-white">
+        <BackgroundLines />
+        <div className="relative z-[1]">
+          <Hero />
+          <SectionDivider label="Clients" />
+          <ClientLogos />
+          <SectionDivider label="Work" />
+          <WorkCarousel />
+          <SectionDivider label="Approach" />
+          <HowWeWork />
+          <SectionDivider label="Services" />
+          <WhatWeOffer />
+          <SectionDivider label="Pricing" />
+          <Pricing />
+          <SectionDivider label="About" />
+          <AboutFounder />
+        </div>
       </main>
       <Footer />
     </>

@@ -95,13 +95,6 @@ const workItems = [
     width: 3620,
     height: 2568,
   },
-  {
-    src: `/work/adobe-digital-products.png?v=${WORK_IMAGE_VERSION}`,
-    alt: "Adobe — digital products checkout",
-    label: "Adobe",
-    width: 7692,
-    height: 5240,
-  },
 ];
 
 function getCarouselHeight(viewportWidth: number) {
@@ -192,7 +185,7 @@ export function WorkCarousel() {
   };
 
   return (
-    <section id="work" className="py-24 md:py-32 overflow-hidden bg-white">
+    <section id="work" className="py-24 md:py-32 overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 mb-12 md:mb-16">
         <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em]">
           Selected work

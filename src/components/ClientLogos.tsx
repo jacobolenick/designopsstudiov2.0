@@ -17,7 +17,7 @@ function ClientLogo({ src, alt, className = "" }: ClientLogoProps) {
 
 export function ClientLogos() {
   return (
-    <section className="px-6 md:px-10 py-12 md:py-16 bg-white">
+    <section className="px-6 md:px-10 py-12 md:py-16">
       <div className="max-w-[1200px] mx-auto">
         <p className="text-center text-[13px] text-muted mb-8 md:mb-10">
           Some of our clients

@@ -1,20 +1,11 @@
 import { motion } from "framer-motion";
 import { Layers, Code2, PenTool } from "lucide-react";
-
-const serviceColors = [
-  {
-    icon: "text-blue-700",
-    box: "bg-blue-50 border-blue-200",
-  },
-  {
-    icon: "text-orange-700",
-    box: "bg-orange-50 border-orange-200",
-  },
-  {
-    icon: "text-green-700",
-    box: "bg-green-50 border-green-200",
-  },
-] as const;
+import {
+  StrokeDivider,
+  strokeCardClass,
+  strokeCardInnerClass,
+  strokeIconBoxClass,
+} from "./strokeCard";
 
 const services = [
   {
@@ -39,7 +30,7 @@ const services = [
 
 export function WhatWeOffer() {
   return (
-    <section id="services" className="px-6 md:px-10 py-24 md:py-32 bg-white">
+    <section id="services" className="px-6 md:px-10 py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto">
         <div className="max-w-2xl mb-16 md:mb-20">
           <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em] leading-tight">
@@ -52,33 +43,36 @@ export function WhatWeOffer() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
-          {services.map((service, i) => {
-            const colors = serviceColors[i];
-
-            return (
-            <motion.div
+          {services.map((service, i) => (
+            <motion.article
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="p-8 rounded-2xl bg-white border border-border"
+              className={strokeCardClass}
             >
-              <div
-                className={`w-10 h-10 rounded-lg border flex items-center justify-center mb-6 ${colors.box}`}
-              >
-                <service.icon
-                  strokeWidth={1.5}
-                  className={`w-[18px] h-[18px] ${colors.icon}`}
-                />
+              <h3 className="text-[17px] font-medium tracking-[-0.01em] text-ink">
+                {service.title}
+              </h3>
+
+              <StrokeDivider />
+
+              <div className={`${strokeCardInnerClass} p-5`}>
+                <div
+                  className={`${strokeIconBoxClass} mb-4 h-10 w-10`}
+                >
+                  <service.icon
+                    strokeWidth={1.5}
+                    className="h-[18px] w-[18px] text-ink"
+                  />
+                </div>
+                <p className="text-[14px] leading-relaxed text-ink/85">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-[17px] font-medium mb-2">{service.title}</h3>
-              <p className="text-[14px] text-muted leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-            );
-          })}
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

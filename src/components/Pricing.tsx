@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { CONTRA_URL, CTA_LABEL } from "../config";
 import { ContraCTAArrow } from "./ContraCTAArrow";
+import {
+  StrokeDivider,
+  strokeBadgeClass,
+  strokeCardClass,
+  strokeCardInnerClass,
+} from "./strokeCard";
 
 type PricingTier = {
   name: string;
@@ -50,7 +56,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.06 }}
-      className={`relative flex flex-col overflow-hidden rounded-[28px] border bg-white p-6 ${
+      className={`${strokeCardClass} p-6 ${
         tier.popular ? "md:px-8 md:py-10 md:-my-6" : "md:p-7"
       } ${
         tier.popular
@@ -64,20 +70,11 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
           {tier.name}
         </h3>
         {tier.badge && (
-          <span className="flex-shrink-0 rounded-md border border-ink/10 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.14em] text-muted">
-            {tier.badge}
-          </span>
+          <span className={strokeBadgeClass}>{tier.badge}</span>
         )}
       </div>
 
-      {/* Dashed divider */}
-      <div
-        className="my-5 h-px w-full"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(to right, rgba(0,0,0,0.14) 0, rgba(0,0,0,0.14) 4px, transparent 4px, transparent 10px)",
-        }}
-      />
+      <StrokeDivider />
 
       {/* Price */}
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
@@ -92,7 +89,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         <div className="absolute -top-2.5 left-4 z-10 rounded-md border border-ink/10 bg-white px-2.5 py-0.5 text-[9px] font-medium uppercase tracking-[0.16em] text-muted">
           Included
         </div>
-        <div className="rounded-2xl border border-ink/[0.08] bg-gradient-to-b from-ink/[0.04] to-ink/[0.02] px-5 pb-5 pt-6">
+        <div className={`${strokeCardInnerClass} px-5 pb-5 pt-6`}>
           <div className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
             <ul className="flex flex-col gap-2.5">
               {leftFeatures.map((feature) => (
@@ -145,7 +142,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
 
 export function Pricing() {
   return (
-    <section id="pricing" className="bg-white px-6 py-24 md:px-10 md:py-32">
+    <section id="pricing" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1200px]">
         <div className="mb-16 max-w-2xl md:mb-20">
           <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium leading-tight tracking-[-0.02em]">

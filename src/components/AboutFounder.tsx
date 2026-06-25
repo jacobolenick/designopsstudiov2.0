@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "../config";
+import {
+  StrokeDivider,
+  strokeBadgeClass,
+  strokeCardClass,
+  strokeCardInnerClass,
+} from "./strokeCard";
 
 function ThreadsIcon({ className }: { className?: string }) {
   return (
@@ -48,7 +54,7 @@ const socialItems = [
 
 export function AboutFounder() {
   return (
-    <section id="about" className="px-6 md:px-10 py-24 md:py-32 bg-white">
+    <section id="about" className="px-6 md:px-10 py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto">
         <div className="max-w-2xl mb-16 md:mb-20">
           <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em] leading-tight">
@@ -60,47 +66,54 @@ export function AboutFounder() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-border bg-white p-6 md:p-10"
+          className={`${strokeCardClass} md:p-8`}
         >
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-            <div className="flex-shrink-0 w-full md:w-[220px]">
-              <img
-                src="/founder.png"
-                alt="Jacob Olenick"
-                className="w-full max-w-[220px] aspect-[4/5] object-cover rounded-xl"
-              />
-            </div>
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="text-[17px] md:text-[18px] font-medium tracking-[-0.02em] leading-tight text-ink">
+              Jacob Olenick{" "}
+              <span className="font-normal text-muted">(he/him)</span>
+            </h3>
+            <span className={strokeBadgeClass}>Founder</span>
+          </div>
 
-            <div className="flex-1 min-w-0">
-              <h3 className="text-[17px] md:text-[18px] font-medium tracking-[-0.02em] leading-tight">
-                Jacob Olenick{" "}
-                <span className="text-muted font-normal">(he/him)</span>
-              </h3>
+          <StrokeDivider />
 
-              <p className="mt-2 text-[15px] md:text-[16px] text-ink/80">
-                Founder of DesignOps Studio & Espresso UI
-              </p>
+          <div className={`${strokeCardInnerClass} p-5 md:p-6`}>
+            <div className="flex flex-col items-start gap-8 md:flex-row md:gap-12">
+              <div className="w-full flex-shrink-0 md:w-[220px]">
+                <img
+                  src="/founder.png"
+                  alt="Jacob Olenick"
+                  className="aspect-[4/5] w-full max-w-[220px] rounded-xl object-cover"
+                />
+              </div>
 
-              <p className="mt-5 text-[14px] md:text-[15px] text-muted leading-relaxed max-w-2xl">
-                Jacob is a Principal Product Designer who&apos;s worked with some
-                of the world&apos;s best companies as a consultant on 0→1 product
-                design and design systems, and has generated billions of dollars
-                in revenue for organizations.
-              </p>
+              <div className="min-w-0 flex-1">
+                <p className="text-[15px] text-ink/80 md:text-[16px]">
+                  Founder of DesignOps Studio & Espresso UI
+                </p>
 
-              <div className="mt-7 flex items-center gap-3">
-                {socialItems.map(({ href, label, icon: Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted hover:text-ink hover:border-ink/15 transition-colors"
-                  >
-                    <Icon className="w-[18px] h-[18px]" />
-                  </a>
-                ))}
+                <p className="mt-5 max-w-2xl text-[14px] leading-relaxed text-ink/85 md:text-[15px]">
+                  Jacob is a Principal Product Designer who&apos;s worked with some
+                  of the world&apos;s best companies as a consultant on 0→1 product
+                  design and design systems, and has generated billions of dollars
+                  in revenue for organizations.
+                </p>
+
+                <div className="mt-7 flex items-center gap-3">
+                  {socialItems.map(({ href, label, icon: Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-ink/10 text-muted transition-colors hover:border-ink/15 hover:text-ink"
+                    >
+                      <Icon className="h-[18px] w-[18px]" />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
