@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { CONTRA_URL, CTA_LABEL } from "../config";
-import { ContraCTAArrow } from "./ContraCTAArrow";
+import { ContraCTAButton } from "./ContraCTAButton";
 import {
   StrokeDivider,
   strokeBadgeClass,
@@ -117,25 +116,9 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         </div>
       </div>
 
-      {/* CTA */}
-      <a
-        href={CONTRA_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex items-center gap-3 rounded-2xl border border-ink/10 bg-gradient-to-b from-ink/[0.05] to-ink/[0.02] px-4 py-3.5 transition-colors hover:border-ink/15 hover:from-ink/[0.07] hover:to-ink/[0.03] ${
-          tier.popular ? "mt-6 md:mt-8" : "mt-6"
-        }`}
-      >
-        <img
-          src="/jacob-headshot.png"
-          alt=""
-          className="h-9 w-9 flex-shrink-0 rounded-lg object-cover"
-        />
-        <span className="flex-1 text-[15px] font-medium text-ink">
-          {CTA_LABEL}
-        </span>
-        <ContraCTAArrow size="sm" variant="onLight" />
-      </a>
+      <ContraCTAButton
+        className={tier.popular ? "mt-6 md:mt-8" : "mt-6"}
+      />
     </motion.article>
   );
 }

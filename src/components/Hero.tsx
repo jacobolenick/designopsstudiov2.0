@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { CONTRA_URL, CTA_LABEL } from "../config";
-import { ContraCTAArrow } from "./ContraCTAArrow";
+import { ContraCTAButton } from "./ContraCTAButton";
 import { FramedImage } from "./FramedImage";
 
 const HERO_WIDTH = 6904;
@@ -59,17 +58,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8"
+            className="mx-auto mt-8 w-full max-w-sm"
           >
-            <a
-              href={CONTRA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-ink text-white text-[16px] md:text-[17px] font-medium px-8 py-3.5 md:px-10 md:py-4 rounded-full hover:bg-ink/85 transition-colors shadow-[0_12px_40px_-8px_rgba(0,0,0,0.25)]"
-            >
-              {CTA_LABEL}
-              <ContraCTAArrow />
-            </a>
+            <ContraCTAButton />
           </motion.div>
         </div>
 
