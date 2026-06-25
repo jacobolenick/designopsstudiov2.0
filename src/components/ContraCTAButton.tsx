@@ -3,22 +3,43 @@ import { ContraCTAArrow } from "./ContraCTAArrow";
 
 type ContraCTAButtonProps = {
   className?: string;
+  size?: "default" | "compact";
 };
 
-export function ContraCTAButton({ className = "" }: ContraCTAButtonProps) {
+const sizeStyles = {
+  default: {
+    button: "w-full gap-3 px-4 py-3.5",
+    image: "h-9 w-9",
+    text: "flex-1 text-[15px]",
+  },
+  compact: {
+    button: "gap-2 px-2.5 py-2",
+    image: "h-7 w-7 rounded-md",
+    text: "text-[13px] md:text-[14px]",
+  },
+} as const;
+
+export function ContraCTAButton({
+  className = "",
+  size = "default",
+}: ContraCTAButtonProps) {
+  const styles = sizeStyles[size];
+
   return (
     <a
       href={CONTRA_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-3 rounded-2xl border border-ink bg-ink px-4 py-3.5 transition-colors hover:bg-ink/85 ${className}`}
+      className={`flex items-center rounded-2xl border border-ink bg-ink transition-colors hover:bg-ink/85 ${styles.button} ${className}`}
     >
       <img
         src="/jacob-headshot.png"
         alt=""
-        className="h-9 w-9 flex-shrink-0 rounded-lg object-cover"
+        className={`flex-shrink-0 rounded-lg object-cover ${styles.image}`}
       />
-      <span className="flex-1 text-[15px] font-medium text-white">{CTA_LABEL}</span>
+      <span className={`font-medium text-white ${styles.text}`}>
+        {CTA_LABEL}
+      </span>
       <ContraCTAArrow size="sm" variant="onDark" />
     </a>
   );

@@ -1,5 +1,4 @@
-import { CONTRA_URL, CTA_LABEL } from "../config";
-import { ContraCTAArrow } from "./ContraCTAArrow";
+import { ContraCTAButton } from "./ContraCTAButton";
 import { Logo } from "./Logo";
 
 export function Nav() {
@@ -28,15 +27,7 @@ export function Nav() {
           </a>
         </nav>
 
-        <a
-          href={CONTRA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[14px] md:text-[15px] font-medium bg-ink text-white px-5 py-2.5 md:px-6 md:py-3 rounded-full hover:bg-ink/85 transition-colors"
-        >
-          {CTA_LABEL}
-          <ContraCTAArrow size="sm" />
-        </a>
+        <ContraCTAButton size="compact" />
       </div>
     </header>
   );
