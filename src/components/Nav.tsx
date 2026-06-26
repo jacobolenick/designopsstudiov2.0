@@ -27,7 +27,7 @@ export function Nav() {
           </a>
         </nav>
 
-        <ContraCTAButton size="compact" />
+        <ContraCTAButton size="compact" className="flex-shrink-0" />
       </div>
     </header>
   );
