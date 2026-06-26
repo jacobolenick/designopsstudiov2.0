@@ -30,7 +30,7 @@ const services = [
 
 export function WhatWeOffer() {
   return (
-    <section id="services" className="px-6 pb-12 pt-4 md:px-10 md:pb-16 md:pt-6">
+    <section id="services" className="px-6 pb-16 pt-8 md:px-10 md:pb-20 md:pt-10">
       <div className="max-w-[1200px] mx-auto">
         <div className="mb-10 max-w-2xl md:mb-12">
           <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em] leading-tight">

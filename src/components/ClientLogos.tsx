@@ -58,7 +58,7 @@ const clients: {
 
 export function ClientLogos() {
   return (
-    <section className="px-6 pb-12 pt-4 md:px-10 md:pb-16 md:pt-6">
+    <section className="px-6 pb-16 pt-8 md:px-10 md:pb-20 md:pt-10">
       <div className="mx-auto max-w-[1200px]">
         <p className="mb-8 text-center text-[13px] text-muted md:mb-10">
           Some of our clients

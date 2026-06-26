@@ -5,7 +5,7 @@ type SectionDividerProps = {
 export function SectionDivider({ label }: SectionDividerProps) {
   return (
     <div
-      className="px-6 pb-3 pt-5 md:px-10 md:pb-4 md:pt-6"
+      className="px-6 py-6 md:px-10 md:py-8"
       aria-hidden="true"
     >
       <div className="mx-auto flex max-w-[1200px] items-center gap-3 md:gap-4">

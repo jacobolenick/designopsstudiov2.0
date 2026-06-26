@@ -54,10 +54,10 @@ const socialItems = [
 
 export function AboutFounder() {
   return (
-    <section id="about" className="px-6 pb-12 pt-4 md:px-10 md:pb-16 md:pt-6">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="max-w-2xl mb-10 md:mb-12">
-          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em] leading-tight">
+    <section id="about" className="px-6 pb-16 pt-8 md:px-10 md:pb-20 md:pt-10">
+      <div className="mx-auto max-w-[1200px]">
+        <div className="mb-10 max-w-2xl md:mb-12">
+          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium leading-tight tracking-[-0.02em]">
             About the founder
           </h2>
         </div>
@@ -66,7 +66,7 @@ export function AboutFounder() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={`${strokeCardClass} md:p-8`}
+          className={`${strokeCardClass} mx-auto max-w-3xl md:p-8`}
         >
           <div className="flex items-start justify-between gap-4">
             <h3 className="text-[17px] md:text-[18px] font-medium tracking-[-0.02em] leading-tight text-ink">
