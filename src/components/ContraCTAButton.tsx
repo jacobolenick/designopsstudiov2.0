@@ -14,9 +14,9 @@ const sizeStyles = {
     text: "flex-1 text-[15px]",
   },
   compact: {
-    button: "gap-2 px-2.5 py-2",
-    image: "h-7 w-7 rounded-md",
-    text: "text-[13px] md:text-[14px]",
+    button: "gap-1.5 px-2 py-1.5 max-sm:rounded-xl sm:gap-2 sm:px-2.5 sm:py-2",
+    image: "h-6 w-6 max-sm:hidden sm:h-7 sm:w-7 rounded-md",
+    text: "text-[12px] sm:text-[13px] md:text-[14px] whitespace-nowrap",
   },
 } as const;
 

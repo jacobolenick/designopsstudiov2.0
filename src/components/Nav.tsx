@@ -3,10 +3,10 @@ import { Logo } from "./Logo";
 
 export function Nav() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-4 bg-white border-b border-border">
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-        <a href="#" className="block py-1">
-          <Logo />
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-white px-4 py-3 md:px-10 md:py-4">
+      <div className="mx-auto flex max-w-[1200px] min-w-0 items-center justify-between gap-3">
+        <a href="#" className="block shrink-0 py-1">
+          <Logo className="[&_img]:h-7 md:[&_img]:h-9" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-[14px] text-muted">
@@ -27,7 +27,7 @@ export function Nav() {
           </a>
         </nav>
 
-        <ContraCTAButton size="compact" className="flex-shrink-0" />
+        <ContraCTAButton size="compact" className="shrink-0" />
       </div>
     </header>
   );
