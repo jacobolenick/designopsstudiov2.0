@@ -10,39 +10,72 @@ import {
 type PricingTier = {
   name: string;
   price: string;
+  minimum: string;
   badge?: string;
+  perfectFor: string;
+  includesNote?: string;
   features: string[];
   popular?: boolean;
 };
-
-const sharedFeatures = [
-  "Async Slack",
-  "Product design",
-  "Design systems",
-  "UX improvements",
-  "Loom walkthroughs",
-] as const;
 
 const tiers: PricingTier[] = [
   {
     name: "Starter",
     price: "$2,750",
-    features: ["4–6 hours/week", ...sharedFeatures],
+    minimum: "3-month minimum",
+    perfectFor:
+      "Early-stage startups or teams that need senior design support.",
+    features: [
+      "Product UI & UX design",
+      "Async communication (Slack)",
+      "Figma handoff",
+    ],
   },
   {
     name: "Growth",
     price: "$3,500",
+    minimum: "3-month minimum",
     badge: "Most popular",
     popular: true,
-    features: ["6–15 hours/week", ...sharedFeatures],
+    perfectFor:
+      "Growing SaaS companies shipping new features every sprint.",
+    includesNote: "Everything in Starter, plus:",
+    features: [
+      "Design system improvements",
+      "New component creation",
+      "UX audits",
+      "Developer collaboration",
+      "Design documentation",
+      "Loom walkthroughs for every delivery",
+    ],
   },
   {
-    name: "Fractional Lead",
-    price: "$5,000–6,000",
-    badge: "Full design leadership",
-    features: ["15–25 hours/week", ...sharedFeatures],
+    name: "Scale / Design Partner",
+    price: "$5,750",
+    minimum: "3–6 month engagement",
+    perfectFor:
+      "Companies investing in long-term product quality and scalability.",
+    includesNote: "Everything in Growth, plus:",
+    features: [
+      "Complete design system architecture",
+      "Product roadmap collaboration",
+      "Accessibility reviews",
+      "Priority turnaround",
+    ],
   },
 ];
+
+function FeatureItem({ feature }: { feature: string }) {
+  return (
+    <li className="flex gap-2.5 text-[13px] leading-snug text-ink/85">
+      <span
+        className="mt-[0.45em] h-1 w-1 flex-shrink-0 rounded-full bg-ink/35"
+        aria-hidden="true"
+      />
+      {feature}
+    </li>
+  );
+}
 
 function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
   const mid = Math.ceil(tier.features.length / 2);
@@ -63,7 +96,6 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
           : "border-ink/10"
       }`}
     >
-      {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <h3 className="text-[17px] font-medium tracking-[-0.01em] text-ink">
           {tier.name}
@@ -75,40 +107,39 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
 
       <StrokeDivider />
 
-      {/* Price */}
-      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+      <p className="text-[13px] leading-relaxed text-muted">
+        <span className="font-medium text-ink/70">Perfect for: </span>
+        {tier.perfectFor}
+      </p>
+
+      <div className="mt-5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
         <span className="text-[clamp(1.75rem,3vw,2.125rem)] font-medium tracking-[-0.03em] text-ink">
           {tier.price}
         </span>
         <span className="text-[15px] text-muted">/month</span>
       </div>
+      <p className="mt-1 text-[13px] text-muted">({tier.minimum})</p>
 
-      {/* Features box */}
-      <div className={`relative flex-1 ${tier.popular ? "mt-6 md:mt-8" : "mt-6"}`}>
+      <div className="relative mt-6">
         <div className="absolute -top-2.5 left-4 z-10 rounded-md border border-ink/10 bg-white px-2.5 py-0.5 text-[9px] font-medium uppercase tracking-[0.16em] text-muted">
           Included
         </div>
         <div className={`${strokeCardInnerClass} px-5 pb-5 pt-6`}>
+          {tier.includesNote && (
+            <p className="mb-3 text-[12px] leading-snug text-muted">
+              {tier.includesNote}
+            </p>
+          )}
           <div className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
             <ul className="flex flex-col gap-2.5">
               {leftFeatures.map((feature) => (
-                <li
-                  key={feature}
-                  className="text-[13px] leading-snug text-ink/85"
-                >
-                  {feature}
-                </li>
+                <FeatureItem key={feature} feature={feature} />
               ))}
             </ul>
             {rightFeatures.length > 0 && (
               <ul className="flex flex-col gap-2.5">
                 {rightFeatures.map((feature) => (
-                  <li
-                    key={feature}
-                    className="text-[13px] leading-snug text-ink/85"
-                  >
-                    {feature}
-                  </li>
+                  <FeatureItem key={feature} feature={feature} />
                 ))}
               </ul>
             )}
@@ -116,9 +147,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         </div>
       </div>
 
-      <ContraCTAButton
-        className={tier.popular ? "mt-6 md:mt-8" : "mt-6"}
-      />
+      <ContraCTAButton className="mt-6" />
     </motion.article>
   );
 }
