@@ -27,9 +27,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-5 text-[13px] text-muted"
+            className="mb-5 text-[14px] font-medium tracking-[-0.01em] text-muted md:text-[15px]"
           >
-            Product design & design systems
+            DesignOps Studio
           </motion.p>
 
           <motion.h1
