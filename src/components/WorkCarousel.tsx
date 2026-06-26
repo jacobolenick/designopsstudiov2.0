@@ -26,25 +26,11 @@ const workItems = [
     height: 769,
   },
   {
-    src: `/work/orgspace-invite.png?v=${WORK_IMAGE_VERSION}`,
-    alt: "Orgspace — invite team error state",
-    label: "Orgspace",
-    width: 5184,
-    height: 3351,
-  },
-  {
     src: `/work/orgspace-upload.png?v=${WORK_IMAGE_VERSION}`,
     alt: "Orgspace — upload CSV success",
     label: "Orgspace",
     width: 5184,
     height: 3351,
-  },
-  {
-    src: `/work/orgspace-review.png?v=${WORK_IMAGE_VERSION}`,
-    alt: "Orgspace — review import",
-    label: "Orgspace",
-    width: 1024,
-    height: 661,
   },
   {
     src: `/work/orgspace-activate.png?v=${WORK_IMAGE_VERSION}`,
