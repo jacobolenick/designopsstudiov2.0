@@ -36,7 +36,7 @@ export function HowWeWork() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+        <div className="grid items-stretch sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
           {steps.map((step, i) => (
             <motion.article
               key={step.title}
@@ -44,7 +44,7 @@ export function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className={`${strokeCardClass} items-center text-center`}
+              className={`${strokeCardClass} h-full text-center`}
             >
               <span className={strokeBadgeClass}>
                 Step {String(i + 1).padStart(2, "0")}
@@ -53,12 +53,12 @@ export function HowWeWork() {
               <StrokeDivider className="my-4" />
 
               <div
-                className={`${strokeCardInnerClass} flex w-full flex-col items-center p-5`}
+                className={`${strokeCardInnerClass} flex min-h-[160px] w-full flex-1 flex-col items-start p-5`}
               >
-                <div className={`${strokeIconBoxClass} mb-4 h-11 w-11`}>
+                <div className={`${strokeIconBoxClass} mb-4 h-11 w-11 flex-shrink-0`}>
                   <step.icon strokeWidth={1.5} className="h-5 w-5 text-ink" />
                 </div>
-                <p className="text-[14px] md:text-[15px] font-medium leading-snug text-ink">
+                <p className="w-full text-left text-[14px] font-medium leading-snug text-ink md:text-[15px]">
                   {step.title}
                 </p>
               </div>

@@ -27,20 +27,20 @@ const tiers: PricingTier[] = [
   {
     name: "Starter",
     price: "$2,750",
-    features: ["10–15 hours/month", ...sharedFeatures],
+    features: ["6–12 hours/week", ...sharedFeatures],
   },
   {
     name: "Growth",
     price: "$3,500",
     badge: "Most popular",
     popular: true,
-    features: ["20–25 hours/month", ...sharedFeatures],
+    features: ["12–20 hours/week", ...sharedFeatures],
   },
   {
     name: "Fractional Lead",
     price: "$5,000–6,000",
     badge: "Full design leadership",
-    features: ["35–40 hours/month", ...sharedFeatures],
+    features: ["15–25 hours/week", ...sharedFeatures],
   },
 ];
 
