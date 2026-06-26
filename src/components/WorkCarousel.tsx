@@ -92,10 +92,10 @@ function getCarouselHeight(viewportWidth: number) {
 function getSlideWidth(
   item: (typeof workItems)[0],
   carouselHeight: number,
-  viewportWidth: number
+  trackWidth: number
 ) {
   const naturalWidth = carouselHeight * (item.width / item.height);
-  return Math.min(naturalWidth, viewportWidth - 48);
+  return Math.min(naturalWidth, Math.max(trackWidth - 24, 240));
 }
 
 export function WorkCarousel() {
@@ -105,6 +105,7 @@ export function WorkCarousel() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [viewportWidth, setViewportWidth] = useState(1200);
+  const [trackWidth, setTrackWidth] = useState(800);
 
   const carouselHeight = getCarouselHeight(viewportWidth);
 
@@ -148,8 +149,20 @@ export function WorkCarousel() {
   }, [updateScrollState]);
 
   useEffect(() => {
-    updateScrollState();
-  }, [viewportWidth, updateScrollState]);
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const updateTrackWidth = () => {
+      setTrackWidth(el.clientWidth);
+      updateScrollState();
+    };
+
+    updateTrackWidth();
+    const observer = new ResizeObserver(updateTrackWidth);
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, [updateScrollState, viewportWidth]);
 
   const scroll = (direction: "left" | "right") => {
     const el = scrollRef.current;
@@ -165,89 +178,93 @@ export function WorkCarousel() {
   const scrollToIndex = (index: number) => {
     slideRefs.current[index]?.scrollIntoView({
       behavior: "smooth",
-      inline: "center",
+      inline: "start",
       block: "nearest",
     });
   };
 
   return (
-    <section id="work" className="py-24 md:py-32 overflow-hidden">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 mb-12 md:mb-16">
-        <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em]">
-          Selected work
-        </h2>
-        <p className="mt-3 text-muted text-[15px] md:text-[16px]">
-          Product design, design systems, and mobile experiences.
-        </p>
-      </div>
-
-      <div className="relative">
-        <div
-          ref={scrollRef}
-          className="flex items-start gap-5 overflow-x-auto hide-scrollbar snap-x snap-mandatory px-6 md:px-10 pb-4"
-        >
-          {workItems.map((item, i) => {
-            const slideWidth = getSlideWidth(item, carouselHeight, viewportWidth);
-
-            return (
-              <div
-                key={item.src}
-                ref={(el) => {
-                  slideRefs.current[i] = el;
-                }}
-                className="flex-shrink-0 snap-center"
-              >
-                <div style={{ width: slideWidth, height: carouselHeight }}>
-                  <FramedImage
-                    src={item.src}
-                    alt={item.alt}
-                    width={item.width}
-                    height={item.height}
-                    priority={i < 2}
-                    fill
-                    className="h-full w-full"
-                  />
-                </div>
-                <p className="mt-3 text-[13px] text-muted">{item.label}</p>
-              </div>
-            );
-          })}
+    <section id="work" className="overflow-hidden px-6 pb-12 pt-4 md:px-10 md:pb-16 md:pt-6">
+      <div className="mx-auto max-w-[1200px]">
+        <div className="mb-6 md:mb-8">
+          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em]">
+            Selected work
+          </h2>
+          <p className="mt-3 text-[15px] text-muted md:text-[16px]">
+            Product design, design systems, and mobile experiences.
+          </p>
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8 flex items-center justify-between">
-          <div className="flex gap-2">
-            {workItems.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollToIndex(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === activeIndex
-                    ? "w-6 bg-ink"
-                    : "w-1.5 bg-border hover:bg-muted"
-                }`}
-              />
-            ))}
+        <div className="flex items-start gap-3 md:gap-4">
+          <div
+            ref={scrollRef}
+            className="flex min-w-0 flex-1 items-start gap-5 overflow-x-auto hide-scrollbar snap-x snap-mandatory pl-6 pb-4"
+          >
+            {workItems.map((item, i) => {
+              const slideWidth = getSlideWidth(
+                item,
+                carouselHeight,
+                trackWidth
+              );
+
+              return (
+                <div
+                  key={item.src}
+                  ref={(el) => {
+                    slideRefs.current[i] = el;
+                  }}
+                  className="flex-shrink-0 snap-start"
+                >
+                  <div style={{ width: slideWidth, height: carouselHeight }}>
+                    <FramedImage
+                      src={item.src}
+                      alt={item.alt}
+                      width={item.width}
+                      height={item.height}
+                      priority={i < 2}
+                      fill
+                      className="h-full w-full"
+                    />
+                  </div>
+                  <p className="mt-3 text-[13px] text-muted">{item.label}</p>
+                </div>
+              );
+            })}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex flex-shrink-0 gap-2 self-start pt-1">
             <button
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
               aria-label="Previous slide"
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-black/[0.03] disabled:opacity-30 disabled:pointer-events-none transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border transition-colors hover:bg-black/[0.03] disabled:pointer-events-none disabled:opacity-30"
             >
-              <ChevronLeft strokeWidth={1.5} className="w-4 h-4" />
+              <ChevronLeft strokeWidth={1.5} className="h-4 w-4" />
             </button>
             <button
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
               aria-label="Next slide"
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-black/[0.03] disabled:opacity-30 disabled:pointer-events-none transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border transition-colors hover:bg-black/[0.03] disabled:pointer-events-none disabled:opacity-30"
             >
-              <ChevronRight strokeWidth={1.5} className="w-4 h-4" />
+              <ChevronRight strokeWidth={1.5} className="h-4 w-4" />
             </button>
           </div>
+        </div>
+
+        <div className="mt-8 flex gap-2 pl-6">
+          {workItems.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all ${
+                i === activeIndex
+                  ? "w-6 bg-ink"
+                  : "w-1.5 bg-border hover:bg-muted"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ContraCTAButton } from "./ContraCTAButton";
+import { HeroCTAButton } from "./HeroCTAButton";
 import { FramedImage } from "./FramedImage";
 
 const HERO_WIDTH = 4568;
@@ -60,7 +60,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mx-auto mt-8 w-full max-w-sm"
           >
-            <ContraCTAButton />
+            <HeroCTAButton />
           </motion.div>
         </div>
 

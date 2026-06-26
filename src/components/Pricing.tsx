@@ -27,14 +27,14 @@ const tiers: PricingTier[] = [
   {
     name: "Starter",
     price: "$2,750",
-    features: ["6–12 hours/week", ...sharedFeatures],
+    features: ["4–6 hours/week", ...sharedFeatures],
   },
   {
     name: "Growth",
     price: "$3,500",
     badge: "Most popular",
     popular: true,
-    features: ["12–20 hours/week", ...sharedFeatures],
+    features: ["6–15 hours/week", ...sharedFeatures],
   },
   {
     name: "Fractional Lead",
@@ -125,9 +125,9 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
 
 export function Pricing() {
   return (
-    <section id="pricing" className="px-6 py-24 md:px-10 md:py-32">
+    <section id="pricing" className="px-6 pb-12 pt-4 md:px-10 md:pb-16 md:pt-6">
       <div className="mx-auto max-w-[1200px]">
-        <div className="mb-16 max-w-2xl md:mb-20">
+        <div className="mb-10 max-w-2xl md:mb-12">
           <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium leading-tight tracking-[-0.02em]">
             Pricing
           </h2>

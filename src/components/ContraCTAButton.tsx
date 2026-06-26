@@ -4,6 +4,7 @@ import { ContraCTAArrow } from "./ContraCTAArrow";
 type ContraCTAButtonProps = {
   className?: string;
   size?: "default" | "compact";
+  showHeadshot?: boolean;
 };
 
 const sizeStyles = {
@@ -22,6 +23,7 @@ const sizeStyles = {
 export function ContraCTAButton({
   className = "",
   size = "default",
+  showHeadshot = true,
 }: ContraCTAButtonProps) {
   const styles = sizeStyles[size];
 
@@ -30,14 +32,22 @@ export function ContraCTAButton({
       href={CONTRA_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center rounded-2xl border border-ink bg-ink transition-colors hover:bg-ink/85 ${styles.button} ${className}`}
+      className={`flex items-center rounded-2xl border border-ink bg-ink transition-colors hover:bg-ink/85 ${
+        showHeadshot
+          ? styles.button
+          : "w-full justify-between gap-3 px-5 py-3.5"
+      } ${className}`}
     >
-      <img
-        src="/jacob-headshot.png"
-        alt=""
-        className={`flex-shrink-0 rounded-lg object-cover ${styles.image}`}
-      />
-      <span className={`font-medium text-white ${styles.text}`}>
+      {showHeadshot && (
+        <img
+          src="/jacob-headshot.png"
+          alt=""
+          className={`flex-shrink-0 rounded-lg object-cover ${styles.image}`}
+        />
+      )}
+      <span
+        className={`font-medium text-white ${showHeadshot ? styles.text : "text-[15px]"}`}
+      >
         {CTA_LABEL}
       </span>
       <ContraCTAArrow size="sm" variant="onDark" />

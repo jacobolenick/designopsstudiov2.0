@@ -30,9 +30,9 @@ const services = [
 
 export function WhatWeOffer() {
   return (
-    <section id="services" className="px-6 md:px-10 py-24 md:py-32">
+    <section id="services" className="px-6 pb-12 pt-4 md:px-10 md:pb-16 md:pt-6">
       <div className="max-w-[1200px] mx-auto">
-        <div className="max-w-2xl mb-16 md:mb-20">
+        <div className="mb-10 max-w-2xl md:mb-12">
           <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em] leading-tight">
             What we offer
           </h2>

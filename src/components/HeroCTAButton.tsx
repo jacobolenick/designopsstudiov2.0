@@ -1,0 +1,16 @@
+import { CONTRA_URL, CTA_LABEL } from "../config";
+import { ContraCTAArrow } from "./ContraCTAArrow";
+
+export function HeroCTAButton() {
+  return (
+    <a
+      href={CONTRA_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex w-full max-w-sm items-center justify-between gap-3 rounded-2xl border border-ink bg-ink px-5 py-3.5 transition-colors hover:bg-ink/85"
+    >
+      <span className="text-[15px] font-medium text-white">{CTA_LABEL}</span>
+      <ContraCTAArrow size="sm" variant="onDark" />
+    </a>
+  );
+}

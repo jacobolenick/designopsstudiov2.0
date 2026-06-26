@@ -54,9 +54,9 @@ const socialItems = [
 
 export function AboutFounder() {
   return (
-    <section id="about" className="px-6 md:px-10 py-24 md:py-32">
+    <section id="about" className="px-6 pb-12 pt-4 md:px-10 md:pb-16 md:pt-6">
       <div className="max-w-[1200px] mx-auto">
-        <div className="max-w-2xl mb-16 md:mb-20">
+        <div className="max-w-2xl mb-10 md:mb-12">
           <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-[-0.02em] leading-tight">
             About the founder
           </h2>
@@ -89,7 +89,7 @@ export function AboutFounder() {
               </div>
 
               <div className="min-w-0 flex-1">
-                <p className="text-[15px] text-ink/80 md:text-[16px]">
+                <p className="text-[18px] font-bold leading-snug text-ink md:text-[21px]">
                   Founder of DesignOps Studio & Espresso UI
                 </p>
 
