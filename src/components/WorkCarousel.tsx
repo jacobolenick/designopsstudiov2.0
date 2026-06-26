@@ -113,17 +113,9 @@ function getSlideDimensions(
 
   if (viewportWidth < 768) {
     const maxWidth = Math.max(trackWidth - 12, 260);
-    const maxHeight = Math.min(Math.round(viewportWidth * 0.72), 420);
+    const width = Math.min(maxWidth, carouselHeight * aspectRatio);
 
-    let width = maxWidth;
-    let height = width / aspectRatio;
-
-    if (height > maxHeight) {
-      height = maxHeight;
-      width = height * aspectRatio;
-    }
-
-    return { width, height };
+    return { width, height: carouselHeight };
   }
 
   const naturalWidth = carouselHeight * aspectRatio;
