@@ -8,7 +8,7 @@ const CAROUSEL_HEIGHT = {
   md: 460,
 };
 
-const WORK_IMAGE_VERSION = "8";
+const WORK_IMAGE_VERSION = "9";
 
 const workItems = [
   {
@@ -17,6 +17,20 @@ const workItems = [
     label: "Espresso UI",
     width: 4568,
     height: 3372,
+  },
+  {
+    src: `/work/coffee-order-notes-home.jpg?v=${WORK_IMAGE_VERSION}`,
+    alt: "Coffee Order Notes — welcome screen and note library",
+    label: "Coffee Order Notes",
+    width: 1024,
+    height: 728,
+  },
+  {
+    src: `/work/coffee-order-notes-ui.jpg?v=${WORK_IMAGE_VERSION}`,
+    alt: "Coffee Order Notes — product UI components and settings",
+    label: "Coffee Order Notes",
+    width: 1024,
+    height: 728,
   },
   {
     src: `/work/visual-app.png?v=${WORK_IMAGE_VERSION}`,
