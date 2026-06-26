@@ -8,7 +8,7 @@ const CAROUSEL_HEIGHT = {
   md: 460,
 };
 
-const WORK_IMAGE_VERSION = "9";
+const WORK_IMAGE_VERSION = "10";
 
 const workItems = [
   {
@@ -103,13 +103,34 @@ function getCarouselHeight(viewportWidth: number) {
   return CAROUSEL_HEIGHT.base;
 }
 
-function getSlideWidth(
+function getSlideDimensions(
   item: (typeof workItems)[0],
   carouselHeight: number,
-  trackWidth: number
+  trackWidth: number,
+  viewportWidth: number
 ) {
-  const naturalWidth = carouselHeight * (item.width / item.height);
-  return Math.min(naturalWidth, Math.max(trackWidth - 24, 240));
+  const aspectRatio = item.width / item.height;
+
+  if (viewportWidth < 768) {
+    const maxWidth = Math.max(trackWidth - 12, 260);
+    const maxHeight = Math.min(Math.round(viewportWidth * 0.72), 420);
+
+    let width = maxWidth;
+    let height = width / aspectRatio;
+
+    if (height > maxHeight) {
+      height = maxHeight;
+      width = height * aspectRatio;
+    }
+
+    return { width, height };
+  }
+
+  const naturalWidth = carouselHeight * aspectRatio;
+  return {
+    width: Math.min(naturalWidth, Math.max(trackWidth - 24, 240)),
+    height: carouselHeight,
+  };
 }
 
 export function WorkCarousel() {
@@ -122,6 +143,7 @@ export function WorkCarousel() {
   const [trackWidth, setTrackWidth] = useState(800);
 
   const carouselHeight = getCarouselHeight(viewportWidth);
+  const isMobile = viewportWidth < 768;
 
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current;
@@ -211,13 +233,14 @@ export function WorkCarousel() {
 
         <div
           ref={scrollRef}
-          className="flex items-start gap-5 overflow-x-auto hide-scrollbar snap-x snap-mandatory pl-6 pb-4"
+          className="flex items-start gap-4 overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-4 md:gap-5 md:pl-6"
         >
           {workItems.map((item, i) => {
-            const slideWidth = getSlideWidth(
+            const { width: slideWidth, height: slideHeight } = getSlideDimensions(
               item,
               carouselHeight,
-              trackWidth
+              trackWidth,
+              viewportWidth
             );
 
             return (
@@ -228,7 +251,7 @@ export function WorkCarousel() {
                 }}
                 className="flex-shrink-0 snap-start"
               >
-                <div style={{ width: slideWidth, height: carouselHeight }}>
+                <div style={{ width: slideWidth, height: slideHeight }}>
                   <FramedImage
                     src={item.src}
                     alt={item.alt}
@@ -236,6 +259,7 @@ export function WorkCarousel() {
                     height={item.height}
                     priority={i < 2}
                     fill
+                    objectFit={isMobile ? "contain" : "cover"}
                     className="h-full w-full"
                   />
                 </div>
@@ -245,7 +269,7 @@ export function WorkCarousel() {
           })}
         </div>
 
-        <div className="mt-8 flex items-center justify-between pl-6">
+        <div className="mt-8 flex items-center justify-between md:pl-6">
           <div className="flex gap-2">
             {workItems.map((_, i) => (
               <button
