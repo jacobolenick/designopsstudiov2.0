@@ -1,0 +1,8 @@
+# https://designops.studio
+User-agent: *
+Allow: /
+
+Sitemap: https://designops.studio/sitemap.xml
+
+# Curated overview for AI systems
+# https://designops.studio/llms.txt

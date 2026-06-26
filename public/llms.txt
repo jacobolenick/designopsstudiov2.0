@@ -1,0 +1,22 @@
+# DesignOps Studio
+
+> Product design, design systems, and 0–1 Figma builds on retainer for teams that ship.
+
+DesignOps Studio is a product design consultancy led by Jacob Olenick. The site covers services, selected work, pricing tiers (Starter, Growth, Fractional Lead), and how retainer engagements run from kickoff to handoff.
+
+## Main
+
+- [Home](https://designops.studio/): Landing page — hero, clients, work, process, services, pricing, and founder bio
+- [How we work](https://designops.studio/#process): Five-step process from Figma handoff through design sprint, async comms, sign-off, and file delivery
+- [Selected work](https://designops.studio/#work): Portfolio including Espresso UI, Orgspace, CRTSIDE, AXS Inventory, and Visual App
+- [What we offer](https://designops.studio/#services): 0→1 design systems in Figma, Claude Code integration, and embedded product design
+- [Pricing](https://designops.studio/#pricing): Monthly retainer tiers at $2,750 (Starter), $3,500 (Growth), and $5,000–6,000 (Fractional Lead)
+- [About the founder](https://designops.studio/#about): Jacob Olenick — Founder of DesignOps Studio & Espresso UI
+- [Contact](https://designops.studio/#contact): Footer CTA and links to hire on Contra
+
+## Optional
+
+- [Hire on Contra](https://contra.com/jacobolenick): Book Jacob Olenick for product design and design systems work
+- [LinkedIn](https://www.linkedin.com/in/jacobmolenick): Jacob Olenick on LinkedIn
+- [Threads](https://www.threads.net/@jacob.olenick): Jacob Olenick on Threads
+- [X](https://x.com/urdesignfriend): Jacob Olenick on X
