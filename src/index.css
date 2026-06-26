@@ -188,4 +188,20 @@
     position: absolute;
     inset: 0;
   }
+
+  .hero-image.framed-image-outer {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-image .framed-image-inner--hug {
+    width: 100%;
+  }
+
+  .hero-image .framed-image-inner--hug .framed-image-img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+  }
 }

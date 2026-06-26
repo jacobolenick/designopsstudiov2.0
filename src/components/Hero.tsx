@@ -3,8 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ContraCTAButton } from "./ContraCTAButton";
 import { FramedImage } from "./FramedImage";
 
-const HERO_WIDTH = 6904;
-const HERO_HEIGHT = 4988;
+const HERO_WIDTH = 4568;
+const HERO_HEIGHT = 3372;
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -19,15 +19,15 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-visible pt-28 md:pt-36 pb-20 md:pb-32 px-6 md:px-10"
+      className="relative overflow-visible px-6 pb-20 pt-28 md:px-10 md:pb-32 md:pt-36"
     >
-      <div className="max-w-[1200px] mx-auto overflow-visible">
-        <div className="relative z-0 max-w-3xl mx-auto text-center mb-12 md:mb-16">
+      <div className="mx-auto max-w-[1200px] overflow-visible">
+        <div className="relative z-0 mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-[13px] text-muted mb-5"
+            className="mb-5 text-[13px] text-muted"
           >
             Product design & design systems
           </motion.p>
@@ -36,7 +36,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[clamp(2.25rem,5.5vw,3.75rem)] font-medium leading-[1.1] tracking-[-0.03em] text-balance"
+            className="text-balance text-[clamp(2.25rem,5.5vw,3.75rem)] font-medium leading-[1.1] tracking-[-0.03em]"
           >
             <span className="text-muted">
               Design systems and product design
@@ -48,9 +48,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 text-[17px] text-muted leading-relaxed max-w-xl mx-auto"
+            className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-muted"
           >
-            0→1 Figma builds, Claude Code integration, and embedded product
+            0–1 Figma builds, AI integrations, and embedded product
             design — on retainer.
           </motion.p>
 
@@ -68,31 +68,23 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="relative z-10 text-center text-[13px] text-muted mb-4 md:mb-5"
+          className="relative z-10 mb-4 text-center text-[13px] text-muted md:mb-5"
         >
-          Client work for Orgspace. Helped them raise $10 million.
+          Espresso UI — Figma library for SaaS applications
         </motion.p>
 
         <motion.div
           style={{ scale: imageScale, y: imageY }}
-          className="relative z-20 origin-top will-change-transform"
+          className="relative z-20 mx-auto w-full origin-top will-change-transform"
         >
-          <div
-            className="framed-image-aspect w-full"
-            style={{ paddingBottom: `${(HERO_HEIGHT / HERO_WIDTH) * 100}%` }}
-          >
-            <div className="framed-image-aspect__fill">
-              <FramedImage
-                src="/hero.png"
-                alt="Orgspace product design — account creation flow"
-                width={HERO_WIDTH}
-                height={HERO_HEIGHT}
-                priority
-                fill
-                className="h-full w-full shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)]"
-              />
-            </div>
-          </div>
+          <FramedImage
+            src="/hero.jpg"
+            alt="Espresso UI design system — components and patterns"
+            width={HERO_WIDTH}
+            height={HERO_HEIGHT}
+            priority
+            className="hero-image block w-full shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)]"
+          />
         </motion.div>
       </div>
     </section>

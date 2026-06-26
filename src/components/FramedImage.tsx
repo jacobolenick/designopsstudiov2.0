@@ -3,6 +3,8 @@ type FramedImageProps = {
   alt: string;
   width: number;
   height: number;
+  srcSet?: string;
+  sizes?: string;
   priority?: boolean;
   fill?: boolean;
   objectFit?: "cover" | "contain";
@@ -14,6 +16,8 @@ export function FramedImage({
   alt,
   width,
   height,
+  srcSet,
+  sizes,
   priority = false,
   fill = false,
   objectFit = "cover",
@@ -26,6 +30,8 @@ export function FramedImage({
       <div className={`framed-image-inner ${fill ? "framed-image-inner--fill" : "framed-image-inner--hug"}`}>
         <img
           src={src}
+          srcSet={srcSet}
+          sizes={sizes}
           alt={alt}
           width={width}
           height={height}
