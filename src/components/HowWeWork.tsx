@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import {
   StrokeDivider,
-  strokeBadgeClass,
   strokeCardClass,
   strokeCardInnerClass,
   strokeIconBoxClass,
@@ -27,8 +26,8 @@ export function HowWeWork() {
   return (
     <section id="process" className="px-6 pb-16 pt-8 md:px-10 md:pb-20 md:pt-10">
       <div className="mx-auto max-w-[1200px]">
-        <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <h2 className="text-balance text-[clamp(1.75rem,4vw,2.75rem)] font-medium leading-tight tracking-[-0.02em]">
+        <div className="mb-10 max-w-2xl md:mb-12">
+          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-medium leading-tight tracking-[-0.02em]">
             How we work
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-muted md:text-[16px]">
@@ -36,7 +35,7 @@ export function HowWeWork() {
           </p>
         </div>
 
-        <div className="grid items-stretch gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-5">
+        <div className="grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step, i) => (
             <motion.article
               key={step.title}
@@ -44,21 +43,24 @@ export function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className={`${strokeCardClass} h-full text-center`}
+              className={`${strokeCardClass} flex h-full flex-col`}
             >
-              <span className={strokeBadgeClass}>
+              <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-muted">
                 Step {String(i + 1).padStart(2, "0")}
               </span>
 
-              <StrokeDivider className="my-4" />
+              <StrokeDivider />
 
               <div
-                className={`${strokeCardInnerClass} flex min-h-[160px] w-full flex-1 flex-col items-start p-5`}
+                className={`${strokeCardInnerClass} flex min-h-[160px] flex-1 flex-col items-start p-5`}
               >
-                <div className={`${strokeIconBoxClass} mb-4 h-11 w-11 flex-shrink-0`}>
-                  <step.icon strokeWidth={1.5} className="h-5 w-5 text-ink" />
+                <div className={`${strokeIconBoxClass} mb-4 h-10 w-10`}>
+                  <step.icon
+                    strokeWidth={1.5}
+                    className="h-[18px] w-[18px] text-ink"
+                  />
                 </div>
-                <p className="w-full text-left text-[14px] font-medium leading-snug text-ink md:text-[15px]">
+                <p className="text-[14px] leading-relaxed text-ink/85">
                   {step.title}
                 </p>
               </div>

@@ -195,44 +195,59 @@ export function WorkCarousel() {
           </p>
         </div>
 
-        <div className="flex items-start gap-3 md:gap-4">
-          <div
-            ref={scrollRef}
-            className="flex min-w-0 flex-1 items-start gap-5 overflow-x-auto hide-scrollbar snap-x snap-mandatory pl-6 pb-4"
-          >
-            {workItems.map((item, i) => {
-              const slideWidth = getSlideWidth(
-                item,
-                carouselHeight,
-                trackWidth
-              );
+        <div
+          ref={scrollRef}
+          className="flex items-start gap-5 overflow-x-auto hide-scrollbar snap-x snap-mandatory pl-6 pb-4"
+        >
+          {workItems.map((item, i) => {
+            const slideWidth = getSlideWidth(
+              item,
+              carouselHeight,
+              trackWidth
+            );
 
-              return (
-                <div
-                  key={item.src}
-                  ref={(el) => {
-                    slideRefs.current[i] = el;
-                  }}
-                  className="flex-shrink-0 snap-start"
-                >
-                  <div style={{ width: slideWidth, height: carouselHeight }}>
-                    <FramedImage
-                      src={item.src}
-                      alt={item.alt}
-                      width={item.width}
-                      height={item.height}
-                      priority={i < 2}
-                      fill
-                      className="h-full w-full"
-                    />
-                  </div>
-                  <p className="mt-3 text-[13px] text-muted">{item.label}</p>
+            return (
+              <div
+                key={item.src}
+                ref={(el) => {
+                  slideRefs.current[i] = el;
+                }}
+                className="flex-shrink-0 snap-start"
+              >
+                <div style={{ width: slideWidth, height: carouselHeight }}>
+                  <FramedImage
+                    src={item.src}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    priority={i < 2}
+                    fill
+                    className="h-full w-full"
+                  />
                 </div>
-              );
-            })}
+                <p className="mt-3 text-[13px] text-muted">{item.label}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-8 flex items-center justify-between pl-6">
+          <div className="flex gap-2">
+            {workItems.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === activeIndex
+                    ? "w-6 bg-ink"
+                    : "w-1.5 bg-border hover:bg-muted"
+                }`}
+              />
+            ))}
           </div>
 
-          <div className="flex flex-shrink-0 gap-2 self-start pt-1">
+          <div className="flex gap-2">
             <button
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
@@ -250,21 +265,6 @@ export function WorkCarousel() {
               <ChevronRight strokeWidth={1.5} className="h-4 w-4" />
             </button>
           </div>
-        </div>
-
-        <div className="mt-8 flex gap-2 pl-6">
-          {workItems.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollToIndex(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                i === activeIndex
-                  ? "w-6 bg-ink"
-                  : "w-1.5 bg-border hover:bg-muted"
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>

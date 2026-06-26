@@ -66,7 +66,7 @@ export function AboutFounder() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={`${strokeCardClass} mx-auto max-w-3xl md:p-8`}
+          className={`${strokeCardClass} md:p-8`}
         >
           <div className="flex items-start justify-between gap-4">
             <h3 className="text-[17px] md:text-[18px] font-medium tracking-[-0.02em] leading-tight text-ink">

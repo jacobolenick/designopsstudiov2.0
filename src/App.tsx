@@ -8,14 +8,12 @@ import { Pricing } from "./components/Pricing";
 import { AboutFounder } from "./components/AboutFounder";
 import { Footer } from "./components/Footer";
 import { SectionDivider } from "./components/SectionDivider";
-import { BackgroundLines } from "./components/BackgroundLines";
 
 export default function App() {
   return (
     <>
       <Nav />
       <main className="relative isolate bg-white">
-        <BackgroundLines />
         <div className="relative z-[1]">
           <Hero />
           <SectionDivider label="Clients" />
