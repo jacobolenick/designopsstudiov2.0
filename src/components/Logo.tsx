@@ -10,10 +10,10 @@ export function Logo({ variant = "dark", className = "" }: LogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 md:gap-3 ${className}`}>
       <img
-        src="/logo-mark.png?v=2"
+        src="/logo-mark.png?v=3"
         alt="DesignOps Studio"
-        width={827}
-        height={1024}
+        width={2592}
+        height={3207}
         className={`block h-8 w-auto flex-shrink-0 object-contain md:h-9 ${markClass}`}
         draggable={false}
       />
