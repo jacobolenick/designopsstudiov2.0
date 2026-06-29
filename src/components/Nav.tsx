@@ -10,11 +10,11 @@ export function Nav() {
         </a>
 
         <nav className="hidden items-center justify-center gap-8 text-[14px] text-muted md:flex md:justify-self-center">
-          <a href="#process" className="hover:text-ink transition-colors">
-            Process
-          </a>
           <a href="#work" className="hover:text-ink transition-colors">
             Work
+          </a>
+          <a href="#process" className="hover:text-ink transition-colors">
+            Process
           </a>
           <a href="#services" className="hover:text-ink transition-colors">
             Services

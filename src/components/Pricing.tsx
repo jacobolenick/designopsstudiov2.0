@@ -9,6 +9,7 @@ import {
 
 type PricingTier = {
   name: string;
+  price: string;
   minimum: string;
   badge?: string;
   perfectFor: string;
@@ -20,6 +21,7 @@ type PricingTier = {
 const tiers: PricingTier[] = [
   {
     name: "Starter",
+    price: "$2,750",
     minimum: "3-month minimum",
     perfectFor:
       "Early-stage startups or teams that need senior design support.",
@@ -31,6 +33,7 @@ const tiers: PricingTier[] = [
   },
   {
     name: "Growth",
+    price: "$3,500",
     minimum: "3-month minimum",
     badge: "Most popular",
     popular: true,
@@ -48,6 +51,7 @@ const tiers: PricingTier[] = [
   },
   {
     name: "Scale / Design Partner",
+    price: "$5,750",
     minimum: "3-month minimum",
     perfectFor:
       "Companies investing in long-term product quality and scalability.",
@@ -108,9 +112,13 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         {tier.perfectFor}
       </p>
 
-      <p className="mt-5 text-[clamp(1.125rem,2.5vw,1.375rem)] font-medium tracking-[-0.02em] text-ink">
-        {tier.minimum}
-      </p>
+      <div className="mt-5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <span className="text-[clamp(1.75rem,3vw,2.125rem)] font-medium tracking-[-0.03em] text-ink">
+          {tier.price}
+        </span>
+        <span className="text-[15px] text-muted">/month</span>
+      </div>
+      <p className="mt-1 text-[13px] text-muted">({tier.minimum})</p>
 
       <div className="relative mt-6">
         <div className="absolute -top-2.5 left-4 z-10 rounded-md border border-ink/10 bg-white px-2.5 py-0.5 text-[9px] font-medium uppercase tracking-[0.16em] text-muted">
