@@ -1,4 +1,4 @@
-import { CONTRA_URL, CTA_LABEL } from "../config";
+import { CTA_URL, CTA_LABEL } from "../config";
 import { ContraCTAArrow } from "./ContraCTAArrow";
 
 type ContraCTAButtonProps = {
@@ -29,9 +29,7 @@ export function ContraCTAButton({
 
   return (
     <a
-      href={CONTRA_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={CTA_URL}
       className={`flex items-center rounded-2xl border border-ink bg-ink transition-colors hover:bg-ink/85 ${
         showHeadshot
           ? styles.button

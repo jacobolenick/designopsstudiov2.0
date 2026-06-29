@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { CONTRA_URL, CTA_LABEL } from "../config";
+import { CONTRA_URL, CTA_URL, CTA_LABEL } from "../config";
 import { ContraCTAArrow } from "./ContraCTAArrow";
 import { Logo } from "./Logo";
 import { CloudText } from "./CloudText";
@@ -34,8 +34,7 @@ function MagneticButton({
     <motion.a
       ref={ref}
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
       style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -53,9 +52,7 @@ function FooterCTA() {
     <div className="relative py-20 md:py-28 overflow-hidden border-t border-white/10">
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 relative z-10">
         <a
-          href={CONTRA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={CTA_URL}
           className="block text-center mb-10 md:mb-12 relative z-20"
         >
           <p className="text-[13px] text-white/40 mb-3 tracking-wide">
@@ -77,7 +74,7 @@ function FooterCTA() {
         </div>
 
         <div className="flex justify-center relative z-20">
-          <MagneticButton href={CONTRA_URL}>
+          <MagneticButton href={CTA_URL}>
             {CTA_LABEL}
             <ContraCTAArrow variant="onLight" />
           </MagneticButton>
