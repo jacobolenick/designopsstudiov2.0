@@ -12,8 +12,8 @@ export function Logo({ variant = "dark", className = "" }: LogoProps) {
       <img
         src="/logo-mark.png"
         alt="DesignOps Studio"
-        width={920}
-        height={948}
+        width={827}
+        height={1024}
         className={`block h-8 w-auto flex-shrink-0 object-contain md:h-9 ${markClass}`}
         draggable={false}
       />
