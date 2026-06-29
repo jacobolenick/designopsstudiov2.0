@@ -147,7 +147,10 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         </div>
       </div>
 
-      <ContraCTAButton className="mt-6" />
+      <ContraCTAButton
+        className="mt-6"
+        emailSubject={`${tier.name} — DesignOps Studio`}
+      />
     </motion.article>
   );
 }

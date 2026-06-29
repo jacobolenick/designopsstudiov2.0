@@ -1,10 +1,11 @@
-import { CTA_URL, CTA_LABEL } from "../config";
+import { CTA_LABEL, getCtaMailto } from "../config";
 import { ContraCTAArrow } from "./ContraCTAArrow";
 
 type ContraCTAButtonProps = {
   className?: string;
   size?: "default" | "compact";
   showHeadshot?: boolean;
+  emailSubject?: string;
 };
 
 const sizeStyles = {
@@ -24,12 +25,13 @@ export function ContraCTAButton({
   className = "",
   size = "default",
   showHeadshot = true,
+  emailSubject,
 }: ContraCTAButtonProps) {
   const styles = sizeStyles[size];
 
   return (
     <a
-      href={CTA_URL}
+      href={getCtaMailto(emailSubject)}
       className={`flex items-center rounded-2xl border border-ink bg-ink transition-colors hover:bg-ink/85 ${
         showHeadshot
           ? styles.button
