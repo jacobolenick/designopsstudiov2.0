@@ -32,7 +32,7 @@ export function ContraCTAButton({
   return (
     <a
       href={getCtaMailto(emailSubject)}
-      className={`flex items-center rounded-2xl border border-ink bg-ink transition-colors hover:bg-ink/85 ${
+      className={`flex items-center rounded-2xl border border-ink bg-ink transition-colors hover:bg-ink/85 dark:border-white dark:bg-white dark:hover:bg-white/90 ${
         showHeadshot
           ? styles.button
           : "w-full justify-between gap-3 px-5 py-3.5"
@@ -46,7 +46,7 @@ export function ContraCTAButton({
         />
       )}
       <span
-        className={`font-medium text-white ${showHeadshot ? styles.text : "text-[15px]"}`}
+        className={`font-medium text-white dark:text-black ${showHeadshot ? styles.text : "text-[15px]"}`}
       >
         {CTA_LABEL}
       </span>

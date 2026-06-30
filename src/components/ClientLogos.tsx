@@ -13,12 +13,12 @@ function ClientLogo({ src, name, tooltip, className = "" }: ClientLogoProps) {
         alt={name}
         draggable={false}
         aria-describedby={`tooltip-${name.toLowerCase()}`}
-        className={`h-6 w-auto cursor-default opacity-45 brightness-0 transition-opacity group-hover:opacity-80 md:h-7 ${className}`}
+        className={`h-6 w-auto cursor-default opacity-45 brightness-0 transition-opacity group-hover:opacity-80 dark:invert md:h-7 ${className}`}
       />
       <div
         id={`tooltip-${name.toLowerCase()}`}
         role="tooltip"
-        className="invisible absolute bottom-[calc(100%+12px)] left-1/2 z-50 w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-ink/10 bg-white px-4 py-3 text-left opacity-0 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.2)] transition-all duration-200 group-hover:visible group-hover:opacity-100 md:w-80"
+        className="invisible absolute bottom-[calc(100%+12px)] left-1/2 z-50 w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-ink/10 bg-surface px-4 py-3 text-left opacity-0 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.2)] transition-all duration-200 group-hover:visible group-hover:opacity-100 md:w-80"
       >
         <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink">
           {name}

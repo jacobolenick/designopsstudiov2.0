@@ -15,7 +15,7 @@ export function SectionDivider({ label }: SectionDividerProps) {
 
         <div className="flex min-w-0 flex-1 items-center">
           <div className="h-px flex-1 bg-border" />
-          <span className="mx-0 flex-shrink-0 rounded-full border border-border bg-white px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-muted md:px-5 md:py-2 md:text-[11px]">
+          <span className="mx-0 flex-shrink-0 rounded-full border border-border bg-surface px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-muted md:px-5 md:py-2 md:text-[11px]">
             {label}
           </span>
           <div className="h-px flex-1 bg-border" />

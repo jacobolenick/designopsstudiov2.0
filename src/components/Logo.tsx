@@ -5,7 +5,7 @@ type LogoProps = {
 
 export function Logo({ variant = "dark", className = "" }: LogoProps) {
   const markClass =
-    variant === "light" ? "invert opacity-50" : "";
+    variant === "light" ? "invert opacity-50" : "dark:invert";
 
   return (
     <span className={`inline-flex items-center gap-2.5 md:gap-3 ${className}`}>

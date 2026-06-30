@@ -83,7 +83,7 @@ export function Hero() {
             width={HERO_WIDTH}
             height={HERO_HEIGHT}
             priority
-            className="hero-image block w-full shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)]"
+            className="hero-image block w-full shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_80px_-12px_rgba(0,0,0,0.45)]"
           />
         </motion.div>
       </div>

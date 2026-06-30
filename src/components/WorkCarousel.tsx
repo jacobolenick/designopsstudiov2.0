@@ -282,7 +282,7 @@ export function WorkCarousel() {
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
               aria-label="Previous slide"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border transition-colors hover:bg-black/[0.03] disabled:pointer-events-none disabled:opacity-30"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink transition-colors hover:bg-ink/[0.04] disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/[0.06]"
             >
               <ChevronLeft strokeWidth={1.5} className="h-4 w-4" />
             </button>
@@ -290,7 +290,7 @@ export function WorkCarousel() {
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
               aria-label="Next slide"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border transition-colors hover:bg-black/[0.03] disabled:pointer-events-none disabled:opacity-30"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink transition-colors hover:bg-ink/[0.04] disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/[0.06]"
             >
               <ChevronRight strokeWidth={1.5} className="h-4 w-4" />
             </button>

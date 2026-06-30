@@ -3,13 +3,35 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --surface: 255 255 255;
+    --ink: 17 17 17;
+    --muted: 115 115 115;
+    --border: 229 229 229;
+    --accent: 17 17 17;
+    --frame-border: 229 229 229;
+    --frame-bg: 255 255 255;
+    --stroke-divider: rgba(0, 0, 0, 0.14);
+  }
+
+  .dark {
+    --surface: 10 10 10;
+    --ink: 245 245 245;
+    --muted: 163 163 163;
+    --border: 38 38 38;
+    --accent: 245 245 245;
+    --frame-border: 38 38 38;
+    --frame-bg: 20 20 20;
+    --stroke-divider: rgba(255, 255, 255, 0.14);
+  }
+
   html {
     scroll-behavior: smooth;
     overflow-x: clip;
   }
 
   body {
-    @apply bg-white text-ink font-sans antialiased;
+    @apply bg-surface text-ink font-sans antialiased;
     overflow-x: clip;
   }
 
@@ -96,9 +118,9 @@
 
   .framed-image-outer {
     border-radius: 24px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid rgb(var(--frame-border));
     padding: 5px;
-    background: white;
+    background: rgb(var(--frame-bg));
     display: inline-block;
     max-width: 100%;
   }
@@ -120,7 +142,7 @@
   .framed-image-inner {
     border-radius: 18px;
     overflow: hidden;
-    background: white;
+    background: rgb(var(--frame-bg));
     line-height: 0;
     isolation: isolate;
   }

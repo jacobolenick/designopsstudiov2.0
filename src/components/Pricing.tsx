@@ -92,7 +92,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         tier.popular ? "md:px-8 md:py-10 md:-my-6" : "md:p-7"
       } ${
         tier.popular
-          ? "border-ink/20 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.12)] md:z-10"
+          ? "border-ink/20 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_80px_-24px_rgba(0,0,0,0.45)] md:z-10"
           : "border-ink/10"
       }`}
     >
@@ -120,7 +120,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       <p className="mt-1 text-[13px] text-muted">({tier.minimum})</p>
 
       <div className="relative mt-6">
-        <div className="absolute -top-2.5 left-4 z-10 rounded-md border border-ink/10 bg-white px-2.5 py-0.5 text-[9px] font-medium uppercase tracking-[0.16em] text-muted">
+        <div className="absolute -top-2.5 left-4 z-10 rounded-md border border-ink/10 bg-surface px-2.5 py-0.5 text-[9px] font-medium uppercase tracking-[0.16em] text-muted">
           Included
         </div>
         <div className={`${strokeCardInnerClass} px-5 pb-5 pt-6`}>

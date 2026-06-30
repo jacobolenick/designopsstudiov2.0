@@ -1,14 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        surface: "#FFFFFF",
-        ink: "#111111",
-        muted: "#737373",
-        border: "#E5E5E5",
-        accent: "#111111",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
       },
       fontFamily: {
         sans: [

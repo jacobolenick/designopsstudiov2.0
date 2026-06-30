@@ -13,7 +13,7 @@ export default function App() {
   return (
     <>
       <Nav />
-      <main className="relative isolate bg-white">
+      <main className="relative isolate bg-surface">
         <div className="relative z-[1]">
           <Hero />
           <SectionDivider label="Clients" />

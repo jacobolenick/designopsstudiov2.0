@@ -38,7 +38,7 @@ function MagneticButton({
       style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative z-20 inline-flex items-center gap-2.5 bg-white text-ink text-[16px] md:text-[17px] font-medium px-8 py-3.5 md:px-10 md:py-4 rounded-full hover:bg-white/90 transition-colors shadow-[0_12px_40px_-8px_rgba(0,0,0,0.35)]"
+      className="relative z-20 inline-flex items-center gap-2.5 bg-white text-black text-[16px] md:text-[17px] font-medium px-8 py-3.5 md:px-10 md:py-4 rounded-full hover:bg-white/90 transition-colors shadow-[0_12px_40px_-8px_rgba(0,0,0,0.35)]"
     >
       {children}
     </motion.a>
@@ -111,7 +111,7 @@ function FooterCTA() {
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-ink text-white">
+    <footer id="contact" className="bg-[#111111] text-white">
       <FooterCTA />
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
