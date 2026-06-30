@@ -21,7 +21,7 @@ type PricingTier = {
 const tiers: PricingTier[] = [
   {
     name: "Starter",
-    price: "$2,750",
+    price: "$",
     minimum: "3-month minimum",
     perfectFor:
       "Early-stage startups or teams that need senior design support.",
@@ -33,7 +33,7 @@ const tiers: PricingTier[] = [
   },
   {
     name: "Growth",
-    price: "$3,500",
+    price: "$$",
     minimum: "3-month minimum",
     badge: "Most popular",
     popular: true,
@@ -51,7 +51,7 @@ const tiers: PricingTier[] = [
   },
   {
     name: "Scale / Design Partner",
-    price: "$5,750",
+    price: "$$$",
     minimum: "3-month minimum",
     perfectFor:
       "Companies investing in long-term product quality and scalability.",
@@ -112,11 +112,10 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         {tier.perfectFor}
       </p>
 
-      <div className="mt-5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+      <div className="mt-5">
         <span className="text-[clamp(1.75rem,3vw,2.125rem)] font-medium tracking-[-0.03em] text-ink">
           {tier.price}
         </span>
-        <span className="text-[15px] text-muted">/month</span>
       </div>
       <p className="mt-1 text-[13px] text-muted">({tier.minimum})</p>
 
